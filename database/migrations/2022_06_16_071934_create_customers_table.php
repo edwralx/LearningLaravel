@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->integer('active');
             $table->unsignedBigInteger('company_id');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

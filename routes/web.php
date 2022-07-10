@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/', 'welcome');
 Route::view('/', 'home');
-Route::view('/about', 'about')->middleware('test');
+// Route::view('/about', 'about')->middleware('test');
+Route::view('/about', 'about');
 
 Route::get('/contact', [ContactFormController::class, 'create']);
 Route::post('/contact', [ContactFormController::class,'store']);

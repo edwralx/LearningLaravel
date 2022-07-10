@@ -10,6 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> --}}
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -26,14 +28,28 @@
 
         <main class="py-4">
             <div class="container">
-                @if (session()->has('message'))
+                {{-- @if (session()->has('message'))
                 <div class="alert alert-success" role="alert">
                     <strong>Success</strong> {{session()->get('message')}}
                 </div>
-                @endif
+                @endif --}}
+
+                {{-- @if ($alertFm = Session::get('success'))
+                <script type="text/javascript">
+                    swal({
+                        title:'Its a big success.',
+                        text:"{{Session::get('success')}}",
+                        timer:4000,
+                        type:'success'
+                    }).then((value) => {
+                    }).catch(swal.noop);
+                </script>
+                @endif --}}
+
                 @yield('content')
             </div>
         </main>
     </div>
+    @stack('child-scripts')
 </body>
 </html>

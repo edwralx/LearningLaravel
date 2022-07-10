@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+@if (session()->has('message'))
+                <script type="text/javascript">
+                    swal({
+                        title:'Its a big success.',
+                        text:"{{Session::get('message')}}",
+                        timer:4000,
+                        type:'success'
+                    }).then((value) => {
+                    }).catch(swal.noop);
+                </script>
+                @endif
 <h1>Contact Us</h1>
 
 <form action="/contact" method="post">
